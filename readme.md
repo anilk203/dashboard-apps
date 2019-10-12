@@ -6,25 +6,28 @@
 
 ## Step 2
 ## open docker-compose.yml 
+##### copy and paste dash2 section 
 ##### change dash2 to dash3
 ##### change port 8002 to 8003
+##### which should look like this
 ```
-  dash2:
-    container_name: dash2
+  dash3:
+    container_name: dash3
     restart: always
-    build: ./dash2
+    build: ./dash3
     volumes:
-      - ./dash2/:/home/project/dash
+      - ./dash3/:/home/project/dash
     ports:
-      - "8002:8002"
-    command: gunicorn -w 1 -b :8002 --log-level=debug app:server   
+      - "8003:8003"
+    command: gunicorn -w 1 -b :8003 --log-level=debug app:server   
 ```    
 
 ## Step 3
 ## open nginx/project.conf
-##### add this section to serve new dash3 from nginx
+##### copy and paste dash2 section 
 ##### change dash2 to dash3
 ##### change port2 to port3
+##### which should look like this
 ```   
   location  /dash3/  {
     proxy_pass http://dash2:8003/dash3/;
