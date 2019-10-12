@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+
+  dash1:
+    container_name: dash1
+    restart: always
+    build: ./dash1
+    volumes:
+      - ./dash1/:/home/project/dash
+    ports:
+      - "8001:8001"
+    command: gunicorn -w 1 -b :8001 --log-level=debug app:server 
+    
+  dash2:
+    container_name: dash2
+    restart: always
+    build: ./dash2
+    volumes:
+      - ./dash2/:/home/project/dash
+    ports:
+      - "8002:8002"
+    command: gunicorn -w 1 -b :8002 --log-level=debug app:server    
+
+
+  nginx:
+    container_name: nginx
+    restart: always
+    build: ./nginx
+    volumes:
+      - ./nginx/web/:/srv/www
+    ports:
+      - "80:80"
+    depends_on:
+      - dash1
+      - dash2
