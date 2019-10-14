@@ -30,7 +30,7 @@
 ##### which should look like this
 ```   
   location  /dash3/  {
-    proxy_pass http://dash2:8003/dash3/;
+    proxy_pass http://dash3:8003/dash3/;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "upgrade";
