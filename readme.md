@@ -13,7 +13,7 @@ change url_base_pathname value to /dash3/
 app = dash.Dash(name='Plotly Flask App',url_base_pathname='/dash2/',
                 server=server)
                 
-after change it should like like this
+after change it should look like this
 
 app = dash.Dash(name='Plotly Flask App',url_base_pathname='/dash3/',
                 server=server)
