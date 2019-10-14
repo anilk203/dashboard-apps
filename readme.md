@@ -4,6 +4,18 @@
 ## create folder under dashboard-apps  dash3
 ##### copy contents of dash2 to dash3
 
+```
+cd dash3
+open / vi app.py
+change url_base_pathname value to /dash3/
+
+
+app = dash.Dash(name='Plotly Flask App',url_base_pathname='/dash2/',
+                server=server)
+
+
+```
+
 ## Step 2
 ## open docker-compose.yml 
 ##### copy and paste dash2 section 
