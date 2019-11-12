@@ -2,12 +2,19 @@ from flask import Flask
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import  datetime 
+import datetime
+
+from db import DatabaseConfigurationRepository 
+dcr = DatabaseConfigurationRepository()
+
+
 
 server = Flask(__name__)
 
 app = dash.Dash(name='Plotly Flask App',url_base_pathname='/dash2/',
                 server=server)
+
+#server.logger.error(dcr.get())
 
 colors = {
     'background': '#111111',
@@ -59,4 +66,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
 ])
 
 if __name__ == '__main__':
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    server.logger.handlers = gunicorn_logger.handlers
+    server.logger.setLevel(gunicorn_logger.level)    
     app.run_server(debug=True)

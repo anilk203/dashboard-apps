@@ -2,6 +2,26 @@ version: '3'
 
 services:
 
+  api:
+    container_name: api
+    restart: always
+    build: ./api
+    volumes:
+      - ./api/:/home/project/dash
+    ports:
+      - "8003:8003"
+    command: gunicorn -w 1 -b :8003 --log-level=debug app:app 
+    
+  mysqldb:
+    build: ./mysql 
+    container_name: mysqldb
+    restart: always
+    command: mysqld --sql_mode="STRICT_ALL_TABLES"
+    ports:
+     - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql   
+
   dash1:
     container_name: dash1
     restart: always
@@ -34,3 +54,4 @@ services:
     depends_on:
       - dash1
       - dash2
+      - api

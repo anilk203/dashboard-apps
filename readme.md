@@ -57,3 +57,18 @@ app = dash.Dash(name='Plotly Flask App',url_base_pathname='/dash3/',
 ```  
 ## change dir to dashboard-apps
 ##### ./restart-dash.sh  
+
+## Bootstrap Database  
+```   
+	## connect to database
+	docker exec -it mysqldb bash
+	mysql -u root -pmysql -h localhost
+	use mysql 
+	create database configuration_database; 
+	use configuration_database;
+	create table database_configurations(id int not null auto_increment, name varchar(100) unique, value varchar(256), primary key(id));
+	
+
+```  
+
+

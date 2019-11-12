@@ -12,6 +12,9 @@
 
     <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
 
 
     <style>
@@ -38,7 +41,7 @@
  
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
+      <a href="/" class="navbar-brand d-flex align-items-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <strong>Dashboards</strong>
       </a>
@@ -54,11 +57,18 @@
       <h1 class="jumbotron-heading">Navigate to ....</h1>
       <p class="lead text-muted">different dashboards</p>
       <p>
-        <a href="/dash1/" class="btn btn-primary my-2">Dash1</a>
-        <a href="/dash2/" class="btn btn-secondary my-2">Dash2</a>
+        <a href="/dash1/" class="btn btn-secondary">Dash1</a>
+        <a href="/dash2/" class="btn btn-secondary">Dash2</a>
+      </p>
+      
+       <p>
+        
+	   <a href="/connection_management.html" class="btn btn-primary">Connection Management</a>      
+           
       </p>
     </div>
   </section>
+   
 
    
 
@@ -66,5 +76,38 @@
 
  
 <script src="/js/jquery-3.4.1.min.js"   crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="/js/jquery-3.4.1.min.js"><\/script>')</script><script src="/js/bootstrap.bundle.min.js"   crossorigin="anonymous"></script></body>
+<script>window.jQuery || document.write('<script src="/js/jquery-3.4.1.min.js"><\/script>')</script><script src="/js/bootstrap.bundle.min.js"   crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+<script type="text/javascript">
+
+	
+	
+	$(document).ready(function(){
+		
+		$('#exampleModal').on('hidden.bs.modal', function (e) {
+			  console.log('hidden')
+		})
+		
+		$('#exampleModal').on('shown.bs.modal', function (e) {
+			  console.log('shown')
+		})		
+	
+	});	
+
+
+
+</script>
+
+
+
+</body>
+
+
+
+
 </html>
