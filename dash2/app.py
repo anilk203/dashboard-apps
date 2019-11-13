@@ -14,7 +14,14 @@ server = Flask(__name__)
 app = dash.Dash(name='Plotly Flask App',url_base_pathname='/dash2/',
                 server=server)
 
-#server.logger.error(dcr.get())
+# all configurations
+db_configs = dcr.get()
+# get object by configuration key
+db_config = dcr.find('test1')
+
+server.logger.error(db_config) 
+if db_config != None:
+    server.logger.error(db_config['value'])
 
 colors = {
     'background': '#111111',
