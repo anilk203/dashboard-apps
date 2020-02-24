@@ -4,8 +4,7 @@ from flask import jsonify
 from flask import request
 import logging
 import pymysql 
-import pymysql.cursors
- 
+import pymysql.cursors 
 app = Flask(__name__)
 
 
