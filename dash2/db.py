@@ -50,7 +50,7 @@ class DatabaseConfigurationRepository:
         
     def find(self, name):
         dc  =  None 
-        obj = None
+        obj = OrderedDict()
         try: 
             dc  =  DatabaseConnection()
             con = dc.get_database_connection()
@@ -61,11 +61,9 @@ class DatabaseConfigurationRepository:
                     cur = con.cursor()
                     sql = "SELECT id, name, value FROM database_configurations where name =  (%s)"
                     cur.execute(sql, (name)) 
-                    rows = cur.fetchall() 
+                    row = cur.fetchone() 
                     
-                    for row in rows: 
-                        obj =  row
-                        break
+                    obj['value'] = row['value']
         
             return obj
         
